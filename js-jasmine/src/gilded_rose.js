@@ -81,7 +81,7 @@ class Shop {
         }
       }
     }
-    // return the array of items 
+    // return the array of items
     return this.items;
   }
 }
