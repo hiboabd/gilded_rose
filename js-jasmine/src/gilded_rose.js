@@ -1,5 +1,3 @@
-// Original code below 
-/*
 class Item {
   constructor(name, sellIn, quality){
     this.name = name;
@@ -12,6 +10,11 @@ class Shop {
   constructor(items=[]){
     this.items = items;
   }
+
+  decreaseSellIn(item){
+    item.sellIn = item.sellIn - 1;
+  }
+
   updateQuality() {
     // looping over the list of shop items starting from beginning to end
     for (var i = 0; i < this.items.length; i++) {
@@ -54,7 +57,7 @@ class Shop {
       // if the items name is not sulfuras hand of ragnaros
       if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
         // decrease the number of days left to sell the item by 1
-        this.items[i].sellIn = this.items[i].sellIn - 1;
+        this.decreaseSellIn(this.items[i])
       }
       // if the number of days left to sell the item is less than 0
       if (this.items[i].sellIn < 0) {
@@ -91,4 +94,3 @@ module.exports = {
   Item,
   Shop
 }
-*/
