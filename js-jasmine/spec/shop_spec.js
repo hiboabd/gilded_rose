@@ -23,7 +23,7 @@ describe("Gilded Rose", function() {
     poorQualityItem  = new Item("poorQualityItem", 30, -10);
     highQualityItem = new Item("highQualityItem", 30, 60);
     testItem = new Item("Test item", 30, 10);
-    gildedRose = new Shop([testItem, agedBrie, sulfuras, backstagePass, backstagePass2, backstagePass3, rottenItem, poorQualityItem, highQualityItem]);
+    gildedRose = new Shop(50, 0, [testItem, agedBrie, sulfuras, backstagePass, backstagePass2, backstagePass3, rottenItem, poorQualityItem, highQualityItem]);
   });
 
   it("Shop has upper quality limit", function() {
