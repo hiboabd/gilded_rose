@@ -81,8 +81,7 @@ class Shop {
               this.items[i].quality = this.items[i].quality - this.items[i].quality;
             }
           } else {
-            // increase the items quality by itself + 1
-            this.items[i].quality = this.items[i].quality + 1;
+            this.updateAgedBrieQuality(this.items[i])
           }
         }
       }
