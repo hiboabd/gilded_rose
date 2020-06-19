@@ -34,6 +34,18 @@ class Shop {
     item.quality --;
   }
 
+  updateBackstagePassQuality(item){
+    if(item.sellIn < 10 && item.sellIn > 5){
+      item.quality = item.quality - 2;
+    } else if(item.sellIn < 5 && item.sellIn > 0) {
+      item.quality = item.quality - 3;
+    } else if (item.sellIn < 0) {
+      item.quality = item.quality - item.quality;
+    } else {
+      item.quality = item.quality - 1;
+    }
+  }
+
   updateQuality() {
     // looping over the list of shop items starting from beginning to end
     for (var i = 0; i < this.items.length; i++) {
@@ -44,7 +56,6 @@ class Shop {
       }
 
       // if the items quality is between the limits
-
       if(this.isqualityLimitExceeded(this.items[i]) === false){
         // if the item is not Aged brie or Backstage pass or sulfuras
         if (this.specialItems.includes(this.items[i].name) === false) {
@@ -74,7 +85,7 @@ class Shop {
           if (this.specialItems.includes(this.items[i].name) === false) {
               this.items[i].quality = this.items[i].quality - 1;
             } else {
-              // decrease the items quality by itself
+              // decrease the items quality by itself (backstage pass rule)
               this.items[i].quality = this.items[i].quality - this.items[i].quality;
             }
           }
