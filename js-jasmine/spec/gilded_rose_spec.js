@@ -73,17 +73,17 @@ describe("Gilded Rose", function() {
   });
 
   describe('updateBackstagePassQuality', () => {
-    it('if sellIn is greater than 10, decrease by 1', () => {
+    it('if sellIn is greater than 10, increase by 1', () => {
       gildedRose.updateBackstagePassQuality(backstagePass)
-      expect(backstagePass.quality).toEqual(9)
+      expect(backstagePass.quality).toEqual(11)
     });
-    it('if sellIn is less than 10 but greater than 5, decrease by 2', () => {
+    it('if sellIn is less than 10 but greater than 5, increase by 2', () => {
       gildedRose.updateBackstagePassQuality(backstagePass2)
-      expect(backstagePass2.quality).toEqual(8)
+      expect(backstagePass2.quality).toEqual(12)
     });
-    it('if sellIn is less than 5, decrease by 3', () => {
+    it('if sellIn is less than 5, increase by 3', () => {
       gildedRose.updateBackstagePassQuality(backstagePass3)
-      expect(backstagePass3.quality).toEqual(7)
+      expect(backstagePass3.quality).toEqual(13)
     });
     it('once sell by date passed, reduce quality to 0', () => {
       gildedRose.updateBackstagePassQuality(backstagePass4)
