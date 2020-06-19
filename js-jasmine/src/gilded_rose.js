@@ -29,6 +29,10 @@ class Shop {
     item.quality ++;
   }
 
+  updateOtherItemsQuality(item){
+    item.quality --;
+  }
+
   updateQuality() {
     // looping over the list of shop items starting from beginning to end
     for (var i = 0; i < this.items.length; i++) {
@@ -46,7 +50,7 @@ class Shop {
           // if the items name is Sulfuras, hand of ragnaros
           if (this.items[i].name != 'Sulfuras, Hand of Ragnaros') {
             // decrease the quality of the item by itself minus 1
-            this.items[i].quality = this.items[i].quality - 1;
+            this.updateOtherItemsQuality(this.items[i])
           }
         } else {
           // increase the quality by itself + 1
