@@ -25,6 +25,10 @@ class Shop {
     }
   }
 
+  updateAgedBrieQuality(item){
+    item.quality = item.quality + 1;
+  }
+
   updateQuality() {
     // looping over the list of shop items starting from beginning to end
     for (var i = 0; i < this.items.length; i++) {
