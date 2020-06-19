@@ -34,7 +34,6 @@ describe("Gilded Rose", function() {
     expect(gildedRose.LOWER_QUALITY_LIMIT).toEqual(0)
   });
 
-
   it("Test item quality decreases by 1 to 9 ", function() {
     const itemsBefore = gildedRose.items
     expect(itemsBefore[0].name).toEqual("Test item");
