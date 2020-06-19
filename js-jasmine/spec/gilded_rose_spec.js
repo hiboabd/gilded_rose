@@ -7,6 +7,7 @@ describe("Gilded Rose", function() {
   var backstagePass
   var backstagePass2
   var backstagePass3
+  var backstagePass4
   var testItem
   var rottenItem
   var poorQualityItem
@@ -16,13 +17,14 @@ describe("Gilded Rose", function() {
     agedBrie = new Item("Aged Brie", 30, 10);
     sulfuras = new Item("Sulfuras, Hand of Ragnaros", 30, 10);
     backstagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 30, 10);
-    backstagePass2 = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10);
-    backstagePass3 = new Item("Backstage passes to a TAFKAL80ETC concert", 5, 10);
+    backstagePass2 = new Item("Backstage passes to a TAFKAL80ETC concert", 9, 10);
+    backstagePass3 = new Item("Backstage passes to a TAFKAL80ETC concert", 4, 10);
+    backstagePass4 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10);
     rottenItem = new Item("rottenItem", 0, 10);
     poorQualityItem  = new Item("poorQualityItem", 30, -10);
     highQualityItem = new Item("highQualityItem", 30, 60);
     testItem = new Item("Test item", 30, 10);
-    gildedRose = new Shop([testItem, agedBrie, sulfuras, backstagePass, backstagePass2, backstagePass3, rottenItem, poorQualityItem, highQualityItem]);
+    gildedRose = new Shop([testItem, agedBrie, sulfuras, backstagePass, backstagePass2, backstagePass3, backstagePass4, rottenItem, poorQualityItem, highQualityItem]);
   });
 
   it('Shop has list of special items', () => {
@@ -69,6 +71,26 @@ describe("Gilded Rose", function() {
       expect(testItem.quality).toEqual(9)
     });
   });
+
+  describe('updateBackstagePassQuality', () => {
+    it('if sellIn is greater than 10, decrease by 1', () => {
+      gildedRose.updateBackstagePassQuality(backstagePass)
+      expect(backstagePass.quality).toEqual(9)
+    });
+    it('if sellIn is less than 10 but greater than 5, decrease by 2', () => {
+      gildedRose.updateBackstagePassQuality(backstagePass2)
+      expect(backstagePass2.quality).toEqual(8)
+    });
+    it('if sellIn is less than 5, decrease by 3', () => {
+      gildedRose.updateBackstagePassQuality(backstagePass3)
+      expect(backstagePass3.quality).toEqual(7)
+    });
+    it('once sell by date passed, reduce quality to 0', () => {
+      gildedRose.updateBackstagePassQuality(backstagePass4)
+      expect(backstagePass4.quality).toEqual(0)
+    });
+  });
+
 
   it("Test item quality decreases by 1 to 9 ", function() {
     const itemsBefore = gildedRose.items
@@ -132,11 +154,11 @@ describe("Gilded Rose", function() {
 
   it("Once the sell by date has passed, quality degrades twice as fast", function() {
     const itemsBefore = gildedRose.items
-    expect(itemsBefore[6].name).toEqual("rottenItem");
-    expect(itemsBefore[6].quality).toEqual(10);
+    expect(itemsBefore[7].name).toEqual("rottenItem");
+    expect(itemsBefore[7].quality).toEqual(10);
 
     const itemsAfter = gildedRose.updateQuality();
-    expect(itemsAfter[6].name).toEqual("rottenItem");
-    expect(itemsAfter[6].quality).toEqual(8);
+    expect(itemsAfter[7].name).toEqual("rottenItem");
+    expect(itemsAfter[7].quality).toEqual(8);
   });
 });
