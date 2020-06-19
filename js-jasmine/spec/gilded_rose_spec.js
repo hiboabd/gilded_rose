@@ -25,6 +25,10 @@ describe("Gilded Rose", function() {
     gildedRose = new Shop([testItem, agedBrie, sulfuras, backstagePass, backstagePass2, backstagePass3, rottenItem, poorQualityItem, highQualityItem]);
   });
 
+  it('Shop has list of special items', () => {
+    expect(gildedRose.specialItems).toEqual(['Sulfuras, Hand of Ragnaros', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert'])
+  });
+
   describe('decreaseSellIn', () => {
     it('decreases sell in of non sulfuras item by 1', () => {
       gildedRose.decreaseSellIn(testItem)
