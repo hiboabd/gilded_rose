@@ -1,6 +1,8 @@
 class Shop {
-  constructor(items=[]){
+  constructor(UPPER_QUALITY_LIMIT, LOWER_QUALITY_LIMIT, items=[]){
     this.items = items;
+    this.UPPER_QUALITY_LIMIT = 50
+    this.LOWER_QUALITY_LIMIT = 0
   }
   updateQuality() {
     // looping over the list of shop items starting from beginning to end
