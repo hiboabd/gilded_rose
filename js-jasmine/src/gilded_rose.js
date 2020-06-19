@@ -36,13 +36,13 @@ class Shop {
 
   updateBackstagePassQuality(item){
     if(item.sellIn < 10 && item.sellIn > 5){
-      item.quality = item.quality - 2;
+      item.quality = item.quality + 2;
     } else if(item.sellIn < 5 && item.sellIn > 0) {
-      item.quality = item.quality - 3;
+      item.quality = item.quality + 3;
     } else if (item.sellIn < 0) {
       item.quality = item.quality - item.quality;
     } else {
-      item.quality = item.quality - 1;
+      item.quality = item.quality + 1;
     }
   }
 
@@ -60,37 +60,22 @@ class Shop {
         // if the item is not Aged brie or Backstage pass or sulfuras
         if (this.specialItems.includes(this.items[i].name) === false) {
           this.updateOtherItemsQuality(this.items[i])
-        } else {
-          if(this.items[i].name != 'Sulfuras, Hand of Ragnaros'){
-            // increase the quality by itself + 1
+          // if the number of days left to sell the item is less than 0
+          if (this.items[i].sellIn < 0) {
+            this.updateOtherItemsQuality(this.items[i])
+          }
+        }
+
+        if(this.items[i].name === this.specialItems[2]){
             this.updateAgedBrieQuality(this.items[i]);
-            // if the items name is backstage pass
-            if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
-              // if the number of days left to sell the item is less than 11
-              if (this.items[i].sellIn < 11) {
-                // increase the quality of the item by itself + 1
-                this.items[i].quality = this.items[i].quality + 1;
-              }
-              // if the number of days left to sell the item is less than 6
-              if (this.items[i].sellIn < 6) {
-                // increase the quality of the item by itself + 1
-                this.items[i].quality = this.items[i].quality + 1;
-              }
-            }
-          }
         }
-        // if the number of days left to sell the item is less than 0
-        if (this.items[i].sellIn < 0) {
-          // and the items name is not aged brie, backstage pass or sulfuras
-          if (this.specialItems.includes(this.items[i].name) === false) {
-              this.items[i].quality = this.items[i].quality - 1;
-            } else {
-              // decrease the items quality by itself (backstage pass rule)
-              this.items[i].quality = this.items[i].quality - this.items[i].quality;
-            }
-          }
+
+        if(this.items[i].name === this.specialItems[1]){
+          this.updateBackstagePassQuality(this.items[i]);
         }
+
       }
+    }
     // return the array of items
     return this.items;
   }
