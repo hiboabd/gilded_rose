@@ -14,7 +14,7 @@ class Shop {
   }
 
   decreaseSellIn(item){
-    item.sellIn = item.sellIn - 1;
+    item.sellIn --;
   }
 
   isqualityLimitExceeded(item){
@@ -26,7 +26,7 @@ class Shop {
   }
 
   updateAgedBrieQuality(item){
-    item.quality = item.quality + 1;
+    item.quality ++;
   }
 
   updateQuality() {
