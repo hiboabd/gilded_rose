@@ -40,6 +40,18 @@ describe("Gilded Rose", function() {
     })
   });
 
+  describe('isqualityLimitExceeded', () => {
+    it('returns true if lower limit has been exceeded', () => {
+      expect(gildedRose.isqualityLimitExceeded(poorQualityItem)).toEqual(true)
+    });
+    it('returns true if lower limit has been exceeded', () => {
+      expect(gildedRose.isqualityLimitExceeded(highQualityItem)).toEqual(true)
+    })
+    it('returns false if neither limit has been exceeded', () => {
+      expect(gildedRose.isqualityLimitExceeded(testItem)).toEqual(false)
+    })
+  });
+
   it("Test item quality decreases by 1 to 9 ", function() {
     const itemsBefore = gildedRose.items
     expect(itemsBefore[0].name).toEqual("Test item");
