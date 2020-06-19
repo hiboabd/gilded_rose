@@ -11,6 +11,7 @@ class Shop {
     this.items = items;
     this.UPPER_QUALITY_LIMIT = 50;
     this.LOWER_QUALITY_LIMIT = 0;
+    this.specialItems = ["Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert", "Aged Brie"]
   }
 
   decreaseSellIn(item){

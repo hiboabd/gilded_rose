@@ -26,7 +26,7 @@ describe("Gilded Rose", function() {
   });
 
   it('Shop has list of special items', () => {
-    expect(gildedRose.specialItems).toEqual(['Sulfuras, Hand of Ragnaros', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert'])
+    expect(gildedRose.specialItems).toEqual(["Sulfuras, Hand of Ragnaros", "Backstage passes to a TAFKAL80ETC concert", "Aged Brie"])
   });
 
   describe('decreaseSellIn', () => {
