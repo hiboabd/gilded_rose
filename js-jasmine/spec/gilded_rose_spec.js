@@ -52,6 +52,13 @@ describe("Gilded Rose", function() {
     })
   });
 
+  describe('updateAgedBrieQuality', () => {
+    it('increases quality by 1', () => {
+      gildedRose.updateAgedBrieQuality(agedBrie)
+      expect(agedBrie.quality).toEqual(11)
+    });
+  });
+
   it("Test item quality decreases by 1 to 9 ", function() {
     const itemsBefore = gildedRose.items
     expect(itemsBefore[0].name).toEqual("Test item");
