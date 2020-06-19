@@ -19,7 +19,7 @@ describe("Gilded Rose", function() {
     backstagePass = new Item("Backstage passes to a TAFKAL80ETC concert", 30, 10);
     backstagePass2 = new Item("Backstage passes to a TAFKAL80ETC concert", 9, 10);
     backstagePass3 = new Item("Backstage passes to a TAFKAL80ETC concert", 4, 10);
-    backstagePass4 = new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10);
+    backstagePass4 = new Item("Backstage passes to a TAFKAL80ETC concert", -1, 10);
     rottenItem = new Item("rottenItem", 0, 10);
     poorQualityItem  = new Item("poorQualityItem", 30, -10);
     highQualityItem = new Item("highQualityItem", 30, 60);
