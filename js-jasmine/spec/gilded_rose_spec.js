@@ -1,4 +1,7 @@
-var {Shop, Item} = require('../src/gilded_rose.js');
+/*
+var {Shop} = require('../src/shop.js');
+var {Item} = require('../src/item.js');
+
 describe("Gilded Rose", function() {
   var gildedRose
   var agedBrie
@@ -134,3 +137,4 @@ describe("Gilded Rose", function() {
     expect(itemsAfter[6].quality).toEqual(8);
   });
 });
+*/

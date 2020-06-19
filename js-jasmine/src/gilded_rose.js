@@ -1,3 +1,5 @@
+// Original code below 
+/*
 class Item {
   constructor(name, sellIn, quality){
     this.name = name;
@@ -89,3 +91,4 @@ module.exports = {
   Item,
   Shop
 }
+*/
