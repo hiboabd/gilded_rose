@@ -73,13 +73,11 @@ The first section below (List of methods and explanation of their functions) is 
 - decreaseSellIn()
   * Reduces the sellIn value of the item by 1  
 
-- updateSulfurasQuality() (might not need this method)
-  * Quality does not change    
-
 - updateBackstagePassQuality()
+  * If sellIn is greater than 10, decrease by 1
   * If sellIn is less than 10 but greater than 5, decrease by 2
   * Else if sellIn is less than 5, decrease by 3
-  * Else decrease quality by 1
+  * Once sell by date passed, reduce quality to 0 (decrease by itself)
 
 - updateAgedBrieQuality()
   * Increases quality by 1
@@ -87,7 +85,7 @@ The first section below (List of methods and explanation of their functions) is 
 - updateConjuredQuality()
   * Reduces the quality by 2
 
-- updateNormalItemsQuality()
+- updateOtherItemsQuality()
   * Reduces the quality by 1
 
 
